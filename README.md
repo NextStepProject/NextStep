@@ -1,16 +1,40 @@
-# React + Vite
+# Alltags- & Zielmanagement App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Vision:**  
+NextStep Soll den Alltag strukturieren, Motivation fördern und persönliche Ziele leichter erreichbar machen – alles unter maximalem Datenschutz. Sie kombiniert Aufgabenmanagement, Wochenplanung, gemeinschaftliche Ziele, Gesundheitserinnerungen und Formulare in einem modernen, benutzerfreundlichen Design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features (Geplante & vorhandene Funktionen)
 
-## React Compiler
+### MVP (Conezpt)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [ ] Aufgabenmanagement mit wiederkehrenden Aufgaben  
+- [ ] Wochenübersichten & Fortschrittsanzeigen  
+- [ ] Alltagsorganisation (z. B. Wäsche, Einkaufen, Staubsaugen) 
+- [ ] Kalender 
 
-## Expanding the ESLint configuration
+###
+  
+- [ ] Gesundheitserinnerungen (Vorsorge, Impfungen) Kooperationen mit Krankenkassen für Gesundheitserinnerungen ? 
+- [ ] Formulare & Vorlagen (z. B. Kaufverträge), teilweise vorausgefüllt + Hinweise   
+- [ ] Gemeinschaftliche Ziele (Gruppen) Raucher Stopp 
+- [ ] Lokale & verschlüsselte Datenspeicherung 
+- [ ] Darkmode
+- [ ] User Erstellung 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Ziel & Motivation
+
+Wir möchten, dass Nutzer:  
+- Mehr Struktur in ihrem Alltag gewinnen  
+- Ziele leichter verfolgen und erreichen  
+- Durch gemeinsame Ziele motiviert werden  
+- Wichtige Termine und Routineaufgaben nicht vergessen  
+- Formulare und Verträge einfach und sicher vorbereiten können 
+- Notfallnummern 
+
+
+
+

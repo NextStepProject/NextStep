@@ -1,0 +1,82 @@
+.dashboard-container {
+    background: #f6f7fb;
+    padding-bottom: 40px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+.reminder-section {
+    padding: 15px;
+}
+
+.reminder-card {
+    background: white;
+    border-radius: 12px;
+    border-color: #59d88e;
+    padding: 15px 20px;
+    margin: 10px 0;
+    transition: transform 0.2s ease;
+}
+
+.reminder-card:hover {
+    transform: translateY(-2px);
+}
+
+.reminder-card.highlight {
+    border-left: 5px solid #2d8b54;
+    background: #59d88e;
+}
+
+.progress-section {
+    padding-left: 15px;
+    padding-right: 15<px;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2d8b54, #59d88e);
+    border-radius: 10px 0 0 10px;
+    transition: width 0.4s ease;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.task-list input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #59d88e;
+}
+
+.task-list li:hover {
+    background: #f2fdf5;
+}

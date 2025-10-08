@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Blanko from './pages/Blanko';
+import Admin from './pages/Admin';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,7 +22,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/blanko" element={<blanko />} />
+          <Route path="/blanko" element={<Blanko />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<h1>404: Seite nicht gefunden</h1>} />
         </Routes>
       </Router>
     </AuthProvider>

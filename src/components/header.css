@@ -5,14 +5,14 @@
   padding: 10px 20px;
   position: relative;
   background-color: #fff;
-  min-width: 430px; 
+  min-width: 430px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .header-logo-image {
@@ -25,7 +25,7 @@
 .header-title {
   font-size: 1.4em;
   font-weight: 600;
-  color: #59d88e; 
+  color: #59d88e;
   text-transform: none;
   letter-spacing: 0.5px;
   white-space: nowrap;
@@ -48,20 +48,15 @@
 .nav-item .nav-link {
   text-decoration: none;
   color: #333;
+  padding-top: 30px;
   font-weight: 500;
-  transition: color 0.3s ease;
 }
 
 .auth-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
   transition: background 0.3s ease, color 0.3s ease;
@@ -70,7 +65,7 @@
 .login-btn {
   background-color: white;
   color: #59d88e;
-  border: 1px solid rgb(0, 0, 0 , 0.2);
+  border: 1px solid rgb(0, 0, 0, 0.2);
 }
 
 .login-btn:hover {
@@ -127,7 +122,7 @@
     transition: transform 1s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 3, -0.5);
     border-radius: 25px;
-    text-align: center; 
+    text-align: center;
   }
 
   .nav.open {
@@ -146,7 +141,6 @@
   .auth-buttons-mobile {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 
   .burger {
@@ -161,10 +155,8 @@
 @media (max-width: 1000px) {
   .auth-buttons-mobile {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 15px 10px;
-    text-align: center; 
+    margin: 10px;
+    text-align: center;
   }
 
   .auth-buttons-mobile .btn {
