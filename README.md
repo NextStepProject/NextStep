@@ -1,40 +1,58 @@
-# Alltags- & Zielmanagement App
+# Alltags- & Zielmanagement App – NextStep
 
 **Vision:**  
-NextStep Soll den Alltag strukturieren, Motivation fördern und persönliche Ziele leichter erreichbar machen – alles unter maximalem Datenschutz. Sie kombiniert Aufgabenmanagement, Wochenplanung, gemeinschaftliche Ziele, Gesundheitserinnerungen und Formulare in einem modernen, benutzerfreundlichen Design.
+NextStep strukturiert den Alltag, fördert Motivation und macht persönliche Ziele leichter erreichbar – **bei maximalem Datenschutz**. Die App kombiniert Aufgabenmanagement, Wochenplanung, gemeinschaftliche Ziele, Gesundheitserinnerungen und Formulare in einem modernen, benutzerfreundlichen Design.
 
 ---
 
-##  Features (Geplante & vorhandene Funktionen)
+## Features (geplante & vorhandene Funktionen)
 
-### MVP (Conezpt)
+### MVP – Frontend
 
-- [ ] Aufgabenmanagement mit wiederkehrenden Aufgaben  
-- [ ] Wochenübersichten & Fortschrittsanzeigen  
-- [ ] Alltagsorganisation (z. B. Wäsche, Einkaufen, Staubsaugen) 
-- [ ] Kalender 
+#### Home
+- [X] Motivierende Worte / Zitate  
+- [X] Promo-Video als Hintergrund für ein professionelles Design  
 
-###
-  
-- [ ] Gesundheitserinnerungen (Vorsorge, Impfungen) Kooperationen mit Krankenkassen für Gesundheitserinnerungen ? 
-- [ ] Formulare & Vorlagen (z. B. Kaufverträge), teilweise vorausgefüllt + Hinweise   
-- [ ] Gemeinschaftliche Ziele (Gruppen) Raucher Stopp 
-- [ ] Lokale & verschlüsselte Datenspeicherung 
-- [ ] Darkmode
-- [ ] User Erstellung 
+#### Dashboard
+- [X] Bereich für Erinnerungen  
+- [X] Bereich für anstehende Aufgaben  
+- [X] Visueller Fortschrittsbalken  
+- [ ] Button zum Hinzufügen neuer Aufgaben oder Routinen  
+
+#### Kalender
+- [ ] Monatsansicht mit Terminen  
+- [ ] Button zum Hinzufügen neuer Termine  
 
 ---
 
-## Ziel & Motivation
+### MVP – Backend
 
-Wir möchten, dass Nutzer:  
-- Mehr Struktur in ihrem Alltag gewinnen  
-- Ziele leichter verfolgen und erreichen  
-- Durch gemeinsame Ziele motiviert werden  
-- Wichtige Termine und Routineaufgaben nicht vergessen  
-- Formulare und Verträge einfach und sicher vorbereiten können 
-- Notfallnummern 
+#### Dashboard
+- [ ] Verwaltung von Erinnerungen  
+- [ ] Verwaltung anstehender Aufgaben  
+- [ ] Berechnung und Darstellung des visuellen Fortschrittsbalkens  
+- [ ] Hinzufügen neuer Aufgaben oder Routinen  
 
+#### Kalender
+- [ ] Monatsübersicht der Termine mit Detailansicht  
 
+---
 
+### Ideen / Erweiterungen
+- [ ] **Gesundheitserinnerungen:** Vorsorge, Impfungen; mögliche Kooperationen mit Krankenkassen  
+- [ ] **Formulare & Vorlagen:** z. B. Kaufverträge, teilweise vorausgefüllt mit Hinweisen  
+- [ ] **Gemeinschaftliche Ziele / Gruppen:** Raucherstopp, Vorsätze, Challenges als Community-Funktion  
+- [ ] **Lokale & verschlüsselte Datenspeicherung**  
+- [ ] **Darkmode / Theme-Anpassungen**
 
+---
+
+### Vorschläge & Feedback
+Wir freuen uns über Ideen, Verbesserungsvorschläge oder Anregungen!  
+Schreibt mir bitte eine E-Mail an: **marvin.young.main@gmail.com**  
+
+![Screenshot der aktuellen Landingpage](./REAME/09.10.205.jpg)
+
+### Vorschläge & Ideen
+
+- **Nicole N.** - Vorlagen für Anträge
