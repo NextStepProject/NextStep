@@ -27,17 +27,20 @@ const Header = () => {
             <li className="nav-item">
               <a href="/dashboard" className="nav-link">Dashboard</a>
             </li>
+            <li className="nav-item">
+              <a href="/planer" className="nav-link">Planer</a>
+            </li>
           </ul>
 
           <div className="auth-buttons-mobile">
             <button className="btn login-btn"><a href="/login" className="nav-link">Login</a></button>
-            <button className="btn register-btn"><a href="/login" className="nav-link">Register</a></button>
+            <button className="btn register-btn"><a href="/register" className="nav-link">Register</a></button>
           </div>
         </nav>
 
         <div className="auth-buttons desktop-only">
           <button className="btn login-btn"><a href="/login" className="nav-link">Login</a></button>
-          <button className="btn register-btn"><a href="/login" className="nav-link">Register</a></button>
+          <button className="btn register-btn"><a href="/register" className="nav-link">Register</a></button>
         </div>
 
         <div className="burger" onClick={toggleMenu}>

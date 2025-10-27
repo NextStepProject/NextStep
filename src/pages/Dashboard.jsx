@@ -3,10 +3,13 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
   const dailyTasks = [
-    "Zähneputzen - 21 Uhr",
-    "Hausaufgaben",
+    "Windows Update durchführen (Arbeitslaptop)",
+    "Hausaufgaben (Schüler)",
     "Brusttraining - 18 Uhr mit Max",
     "Käfig Reinigung",
+  <>
+    Einkaufen – <a href="/home">Hier Klicken</a>
+  </>,
   ];
 
   return (
@@ -32,12 +35,12 @@ const Dashboard = () => {
       </section>
 
       <section className="progress-section">
-        <h1>Täglicher Fortschritt</h1>
+        <h1>Heutiger Fortschritt</h1>
 
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: "33%" }}></div>
+          <div className="progress-fill" style={{ width: "38%" }}></div>
         </div>
-        <p className="progress-text">33 % der Aufgaben wurden geschafft </p>
+        <p className="progress-text">38 % der Aufgaben wurden geschafft </p>
 
         <div className="task-list">
           <h2>Noch offene Aufgaben</h2>

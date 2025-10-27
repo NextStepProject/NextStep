@@ -19,8 +19,8 @@ NextStep strukturiert den Alltag, fördert Motivation und macht persönliche Zie
 - [X] Visueller Fortschrittsbalken  
 - [ ] Button zum Hinzufügen neuer Aufgaben oder Routinen  
 
-#### Kalender
-- [ ] Monatsansicht mit Terminen  
+#### Planer
+- [X] Monatsansicht mit Terminen  
 - [ ] Button zum Hinzufügen neuer Termine  
 
 ---
@@ -33,7 +33,7 @@ NextStep strukturiert den Alltag, fördert Motivation und macht persönliche Zie
 - [ ] Berechnung und Darstellung des visuellen Fortschrittsbalkens  
 - [ ] Hinzufügen neuer Aufgaben oder Routinen  
 
-#### Kalender
+#### Planer
 - [ ] Monatsübersicht der Termine mit Detailansicht  
 
 ---
@@ -56,3 +56,4 @@ Schreibt mir bitte eine E-Mail an: **marvin.young.main@gmail.com**
 ### Vorschläge & Ideen
 
 - **Nicole N.** - Vorlagen für Anträge
+- **Suheib M.** - React Native - (Mobile App erstellung)
