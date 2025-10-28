@@ -33,4 +33,4 @@ jobs:
             echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/PrivateKey
             chmod 400 ~/.ssh/PrivateKey
             ssh-keyscan -H ${{secrets.EC2_MASCHINE}}  >> ~/.ssh/known_hosts
-            scp -r -i ~/.ssh/PrivateKey ../NextStep 
+            scp -r -i ~/.ssh/PrivateKey ../NextStep/. ubuntu@${{secrets.EC2_MASCHINE}}:/home/ubuntu/NextStep
