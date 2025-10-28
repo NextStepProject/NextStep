@@ -4,32 +4,33 @@
 name: Deploy Next_Step to AWS EC2
 
 on:
-  merge:
+  push:
     branches: [ "main" ]
 
 jobs:
   build-and-deploy:
-    runs-ons: ubuntu-latest
+
+    runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout reposeitory
-        uses: actions/checkout@v5
+    - name: Checkout repository
+      uses: actions/checkout@v5
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run build
-        run: npm run build
+    - name: Run build
+      run: npm run build
       
-      - name: ssh setup
-        run: |
-            mkdir -p ~/.ssh
-            echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/PrivateKey
-            chmod 400 ~/.ssh/PrivateKey
-            ssh-keyscan -H ${{secrets.EC2_MASCHINE}}  >> ~/.ssh/known_hosts
-            scp -r -i ~/.ssh/PrivateKey ../NextStep 
+    - name: ssh setup
+      run: |
+          mkdir -p ~/.ssh
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/PrivateKey
+          chmod 400 ~/.ssh/PrivateKey
+          ssh-keyscan -H ${{secrets.EC2_MASCHINE}}  >> ~/.ssh/known_hosts
+          scp -r -i ~/.ssh/PrivateKey ./ ubuntu@${{secrets.EC2_MASCHINE}}:/home/ubuntu/NextStep
