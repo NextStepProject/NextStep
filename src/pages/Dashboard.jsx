@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import "./Dashboard.css";
+import "./dashboard.css";
 
 const Dashboard = () => {
   const dailyTasks = [

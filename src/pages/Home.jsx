@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
-import "./Home.css";
+import "./home.css";
 
 const quotes = [
   "„Wer das Ziel kennt, findet den Weg.“ – Laotse (ca. 600 v. Chr.)",
