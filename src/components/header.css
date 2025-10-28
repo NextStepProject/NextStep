@@ -4,8 +4,9 @@
   align-items: center;
   padding: 10px 20px;
   position: relative;
-  background-color: #fff;
+  background-color: #ffffff1f;
   min-width: 430px;
+  box-shadow: 0 2px -4px rgba(0, 0, 0, 0.1);
 }
 
 .header-left {
@@ -115,7 +116,7 @@
     position: absolute;
     top: 70px;
     right: 0;
-    background: white;
+    background: rgba(255, 255, 255);
     flex-direction: column;
     opacity: 0;
     visibility: hidden;

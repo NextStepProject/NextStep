@@ -4,45 +4,29 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import './planer.css';
 
 const Planer = () => {
     const today = new Date();
 
     const eventsData = [
         {
+            UserId: 1,
             name: 'Oma',
-            birthDate: new Date(1946, 10, 23),
-            // deathDate: new Date(2025, 0, 9),
+            startDate: new Date(1946, 10, 23),
+            endDate: new Date(2025, 0, 9),
             color: '#ab3ed3',
             description: 'Die beste Oma der Welt',
             type: 'birthday',
         },
         {
-            name: 'Oliver N.',
-            birthDate: new Date(2007, 9, 27),
-            color: '#59d88e',
-            type: 'birthday',
-        },
-        {
-            name: 'Nico Y.',
-            birthDate: new Date(2001, 4, 14),
-            color: '#0046f6',
-            type: 'birthday',
-        },
-        {
-            name: 'Papa (Torsten S.)',
-            birthDate: new Date(1966, 1, 15),
-            color: '#3b82f6',
-            type: 'birthday',
-        },
-        {
+            UserId: 1,
             name: 'Ich (Marvin Y.)',
-            birthDate: new Date(1998, 10, 23),
+            startDate: new Date(1998, 10, 23),
             color: '#4c5e7a',
             type: 'birthday',
         },
         {
+            UserId: 1,
             name: 'Next Step Start',
             startDate: new Date(2025, 9, 27, 10, 0),
             endDate: new Date(2025, 9, 27, 11, 30),
@@ -51,6 +35,7 @@ const Planer = () => {
             type: 'meeting',
         },
         {
+            UserId: 1,
             name: 'Next Step Projektphase',
             startDate: new Date(2025, 9, 27),
             endDate: new Date(2025, 10, 18),
@@ -59,8 +44,9 @@ const Planer = () => {
             type: 'project',
         },
         {
+            UserId: 1,
             name: 'Arzttermin',
-            date: new Date(2025, 10, 5, 15, 30),
+            startDate: new Date(2025, 10, 5, 15, 30),
             color: '#e74c3c',
             description: 'Zahnarzttermin zur Kontrolle',
             type: 'termin',
@@ -69,30 +55,29 @@ const Planer = () => {
 
     const formatLocalDate = (date) => {
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // +1 für Anzeige
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
-    }
+    };
 
     const generatedEvents = useMemo(() => {
         const events = [];
         const currentYear = today.getFullYear();
 
         eventsData.forEach((item) => {
-            const { name, type, color, description } = item;
+            const { name, type, color, description, startDate, endDate } = item;
 
-            if (type === 'birthday' && item.birthDate) {
-                const { birthDate, deathDate } = item;
-                const endYear = deathDate ? deathDate.getFullYear() + 5 : currentYear + 5;
+            if (type === 'birthday' && startDate) {
+                const endYear = endDate ? endDate.getFullYear() + 5 : currentYear + 5;
 
-                for (let year = birthDate.getFullYear(); year <= endYear; year++) {
-                    const birthday = new Date(year, birthDate.getMonth(), birthDate.getDate());
-                    const age = year - birthDate.getFullYear();
-                    const isAfterDeath = deathDate && birthday > deathDate;
+                for (let year = startDate.getFullYear(); year <= endYear; year++) {
+                    const birthday = new Date(year, startDate.getMonth(), startDate.getDate());
+                    const age = year - startDate.getFullYear();
+                    const isAfterDeath = endDate && birthday > endDate;
                     const bg = isAfterDeath ? '#cbd5e1' : color;
                     const textColor = isAfterDeath ? '#555' : '#fff';
 
-                    if (birthday >= birthDate) {
+                    if (birthday >= startDate) {
                         events.push({
                             title: `${name} – ${age}. Geburtstag 🎂`,
                             date: formatLocalDate(birthday),
@@ -102,10 +87,10 @@ const Planer = () => {
                     }
                 }
 
-                if (deathDate) {
-                    for (let year = deathDate.getFullYear(); year <= currentYear + 5; year++) {
-                        const gedenkTag = new Date(year, deathDate.getMonth(), deathDate.getDate());
-                        const yearsSince = year - deathDate.getFullYear();
+                if (endDate) {
+                    for (let year = endDate.getFullYear(); year <= currentYear + 5; year++) {
+                        const gedenkTag = new Date(year, endDate.getMonth(), endDate.getDate());
+                        const yearsSince = year - endDate.getFullYear();
                         const title =
                             yearsSince === 0
                                 ? `🕊 ${name} – Verstorben`
@@ -119,44 +104,36 @@ const Planer = () => {
                         });
                     }
                 }
-            }
-
-            else if (type === 'project' && item.startDate) {
-                events.push({
-                    title: ` ${name}`,
-                    start: item.startDate,
-                    end: item.endDate,
-                    backgroundColor: color,
-                    textColor: '#fff',
-                    description,
-                });
-            }
-
-            else if (type === 'meeting' && item.startDate) {
-                events.push({
-                    title: ` ${name}`,
-                    start: item.startDate,
-                    end: item.endDate,
-                    backgroundColor: color,
-                    textColor: '#fff',
-                    description,
-                });
-            }
-
-            else if (type === 'termin' && item.date) {
-                events.push({
-                    title: ` ${name}`,
-                    start: item.date,
-                    backgroundColor: color,
-                    textColor: '#fff',
-                    description,
-                });
-            }
-
-            else if (type === 'custom' && item.date) {
+            } else if (type === 'project' && startDate) {
                 events.push({
                     title: name,
-                    date: formatLocalDate(item.date),
+                    start: startDate,
+                    end: endDate,
+                    backgroundColor: color,
+                    textColor: '#fff',
+                    description,
+                });
+            } else if (type === 'meeting' && startDate) {
+                events.push({
+                    title: name,
+                    start: startDate,
+                    end: endDate,
+                    backgroundColor: color,
+                    textColor: '#fff',
+                    description,
+                });
+            } else if (type === 'termin' && startDate) {
+                events.push({
+                    title: name,
+                    start: startDate,
+                    backgroundColor: color,
+                    textColor: '#fff',
+                    description,
+                });
+            } else if (type === 'custom' && startDate) {
+                events.push({
+                    title: name,
+                    date: formatLocalDate(startDate),
                     backgroundColor: color || '#3e72b6ff',
                     textColor: '#fff',
                     description,
@@ -173,7 +150,7 @@ const Planer = () => {
     };
 
     return (
-        <div className="p-6">
+        <div>
             <Header />
             <h1 className="text-3xl font-bold mb-6">Planer</h1>
             <div className="flex flex-col gap-10">

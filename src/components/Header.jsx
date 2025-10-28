@@ -10,8 +10,8 @@ const Header = () => {
     <header className="header">
       <div className="header-left">
         <img
-          src="public/assets/logo/logo.png"
-          alt="Logo"
+          src="public/assets/images/logo/logo.png"
+          alt="NextStep Logo"
           className="header-logo-image"
         />
         <h1 className="header-title">
@@ -32,6 +32,9 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <a href="/planer" className="nav-link">Planer</a>
+          </li>
+          <li className="nav-item">
+            <a href="/profile" className="nav-link">Profile</a>
           </li>
         </ul>
 

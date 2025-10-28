@@ -7,9 +7,6 @@ const Dashboard = () => {
     "Hausaufgaben (Schüler)",
     "Brusttraining - 18 Uhr mit Max",
     "Käfig Reinigung",
-  <>
-    Einkaufen – <a href="/home">Hier Klicken</a>
-  </>,
   ];
 
   return (
