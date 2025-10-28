@@ -13,7 +13,7 @@ const Planer = () => {
         {
             name: 'Oma',
             birthDate: new Date(1946, 10, 23),
-            deathDate: new Date(2025, 0, 9),
+            // deathDate: new Date(2025, 0, 9),
             color: '#ab3ed3',
             description: 'Die beste Oma der Welt',
             type: 'birthday',
@@ -53,7 +53,7 @@ const Planer = () => {
         {
             name: 'Next Step Projektphase',
             startDate: new Date(2025, 9, 27),
-            endDate: new Date(2025, 11, 18),
+            endDate: new Date(2025, 10, 18),
             color: '#ff9f43',
             description: 'Projekt Durchlauf',
             type: 'project',
