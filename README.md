@@ -3,7 +3,7 @@
 
 
 ## **Vision**
-NextStep strukturiert den Alltag, fördert Motivation und macht persönliche Ziele leichter erreichbar – **bei maximalem Datenschutz**.  
+NextStep strukturiert den Alltag, fördert Motivation und macht persönliche Ziele leichter erreichbar .  
 Die App kombiniert intelligentes Aufgabenmanagement, Wochenplanung, gemeinschaftliche Ziele, Gesundheitserinnerungen und nützliche Formulare in einem modernen, benutzerfreundlichen Design.
 
 ---
@@ -24,7 +24,8 @@ Die App kombiniert intelligentes Aufgabenmanagement, Wochenplanung, gemeinschaft
 
 ### **Backend**
 - Zentrale Verwaltung von Erinnerungen, Aufgaben und Terminen.  
-- Automatische Berechnung und Darstellung von Fortschrittsdaten.  
+- Automatische Berechnung und Darstellung von Fortschrittsdaten.
+- Lokale Verschlüsselte Speicherung beim Nutzer   
 - Möglichkeit, neue Aufgaben, Routinen oder Termine hinzuzufügen.  
 - Sichere, strukturierte Datenspeicherung mit Fokus auf Datenschutz und Effizienz.
 
@@ -37,12 +38,17 @@ Die App kombiniert intelligentes Aufgabenmanagement, Wochenplanung, gemeinschaft
 - **Lokale & verschlüsselte Datenspeicherung:** Maximale Kontrolle über persönliche Informationen.  
 
 Weitere Ideen sind auf unserem Repo Unter der reiter Projekt auf den kanabn Board zu sehen
- [Kanban Board]()
+ [Kanban Board](https://github.com/users/Marvin-Young-Dev/projects/2/views/1?filterQuery=)
 ---
 
 ## **Projekt Teilnehmer**
-**Domske** – Schwerpunkt Backend
+**Domske S.** – Schwerpunkt Backend
 **Marvin Y.** - Schwerpunkt Frontend
+
+## ****
+**Subheib M.** - Trainer [Techstarter / Syntax Institut]
+**Marcus W.**  - Trainer [Techstarter / Syntax Institut]
+
 
 ****
 

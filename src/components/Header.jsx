@@ -15,7 +15,7 @@ const Header = () => {
           className="header-logo-image"
         />
         <h1 className="header-title">
-          „Improve Yourself Step by Step“{" "}
+          „NextStep“{" "}
           <span style={{ color: "gray", fontSize: "10px" }}>
             Konzept Projekt
           </span>
