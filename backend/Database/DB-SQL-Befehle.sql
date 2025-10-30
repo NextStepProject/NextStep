@@ -1,41 +1,66 @@
---SQLite3
-
+-- Tabelle: users
 CREATE TABLE users (
-    userid INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL);
-
-
-CREATE TABLE tasks (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    due_date DATETIME,
-    repeat_interval VARCHAR(50),  -- z. B. 'daily', 'weekly', 'monthly'
-    is_done BOOLEAN DEFAULT FALSE,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    userid INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
 );
 
+-- Tabelle: tasks
+CREATE TABLE tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userid INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    due_date DATETIME,
+    repeat_interval TEXT, -- z. B. 'daily', 'weekly', 'monthly'
+    is_done BOOLEAN DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
+);
+
+-- Trigger, um updated_at automatisch zu aktualisieren
+CREATE TRIGGER update_tasks_timestamp
+AFTER UPDATE ON tasks
+FOR EACH ROW
+BEGIN
+    UPDATE tasks SET updated_at = CURRENT_TIMESTAMP WHERE id = OLD.id;
+END;
+
+-- Tabelle: calendar
 CREATE TABLE calendar (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userid INTEGER NOT NULL,
+    title TEXT NOT NULL,
     description TEXT,
     type TEXT,
     start_time DATETIME,
     end_time DATETIME,
-    is_birthday BOOLEAN DEFAULT FALSE,
-    repeat_interval VARCHAR(50),  -- für Geburtstage oder wiederkehrende Termine
-    linked_task_id INT,           -- optional: Verbindung zur Task
+    is_birthday BOOLEAN DEFAULT 0,
+    repeat_interval TEXT,  -- für Geburtstage oder wiederkehrende Termine
+    linked_task_id INTEGER,           -- optional: Verbindung zur Task
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE,
     FOREIGN KEY (linked_task_id) REFERENCES tasks(id) ON DELETE SET NULL
 );
 
-INSERT INTO users (userid, username, password) VALUES (1, 'admin', 'test123');
+-- Trigger, um updated_at automatisch zu aktualisieren
+CREATE TRIGGER update_calendar_timestamp
+AFTER UPDATE ON calendar
+FOR EACH ROW
+BEGIN
+    UPDATE calendar SET updated_at = CURRENT_TIMESTAMP WHERE id = OLD.id;
+END;
 
-DROP TABLE users;
+
+INSERT INTO users (username, password)
+VALUES ('admin', 'test123');
+
+INSERT INTO tasks (userid, title, description, due_date)
+VALUES (1, 'Erste Aufgabe', 'Beschreibung der Aufgabe', '2025-11-01 10:00:00');
+
+INSERT INTO calendar (userid, title, start_time, end_time, type)
+VALUES (1, 'Meeting', '2025-11-01 14:00:00', '2025-11-01 15:00:00', 'event');
+
+DELETE FROM users WHERE username = 'admin';
