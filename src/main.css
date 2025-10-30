@@ -1,14 +1,65 @@
+:root {
+  /* Primärfarbe: Links, Überschriften (h1, h2) */
+  --primary-color: #59d88e; 
+
+  /* Hintergrundfarbe der gesamten Seite */
+  --background-color: #312422; 
+
+  /* Hintergrundfarbe von Buttons (Login, Standardbuttons) */
+  --background-color-button: #ffffff; 
+
+  /* Hintergrundfarbe beim Hover von Buttons (Login, Standardbuttons) */
+  --background-color-button-hover: #327a50; 
+
+  /* Hintergrundfarbe für Register-Button */
+  --background-color-button-register: #327a50; 
+
+  /* Hintergrundfarbe beim Hover vom Register-Button */
+  --background-color-button-register-hover: #1d5c37; 
+
+  /* Hintergrundfarbe für Karten und Seiteninhalte */
+  --background-color-page: #8b8b8b;
+}
+
+
 body {
   margin: 0;
-  background-color: #ffffff; 
+  background-color: var(--background-color);
   font-family: Arial, sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+button {
+  color: var(--background-color-button);
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.body {
+  margin: 15px;
 }
 
 .header {
-  background-color: #ffffff;
+  background-color: var(--background-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content-container {
+  padding: 15px;
 }

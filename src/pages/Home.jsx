@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import "./home.css";
 
+
 const quotes = [
   "„Wer das Ziel kennt, findet den Weg.“ – Laotse (ca. 600 v. Chr.)",
   "„Nicht der Berg ist es, den man bezwingt, sondern das eigene Ich.“ – Edmund Hillary (1953)",
@@ -36,18 +37,14 @@ const Home = () => {
   return (
     <div className="home-container">
       <Header />
-
       <video autoPlay muted loop className="bg-video">
         <source src="/assets/video/promo/promo.mp4" type="video/mp4" />
         Dein Browser unterstützt keine HTML5-Videos.
       </video>
-
-      <div className="overlay"></div>
-
       <div className="content">
-        <h1 className={`fade-text ${fade ? "fade-in" : "fade-out"}`}>
+        <h3 className={`fade-text ${fade ? "fade-in" : "fade-out"}`}>
           {quote}
-        </h1>
+        </h3>
       </div>
     </div>
   );

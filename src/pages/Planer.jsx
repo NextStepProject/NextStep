@@ -152,10 +152,10 @@ const Planer = () => {
     return (
         <div>
             <Header />
-            <h1 className="text-3xl font-bold mb-6">Planer</h1>
-            <div className="flex flex-col gap-10">
+            <div className="content-container">
+            <h1>Planer</h1>
                 <div>
-                    <h2 className="text-2xl mb-3">
+                    <h2>
                         Übersicht ({today.toLocaleString('de-DE', { month: 'long', year: 'numeric' })})
                     </h2>
                     <FullCalendar
