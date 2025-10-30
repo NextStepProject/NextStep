@@ -27,12 +27,12 @@ const Profile = () => {
                 <p>Username : Demo User</p>
                 <p>Birthday : 23.11.1998</p>
             </div>
-            <div className="button-container">
-                <button className="btn login-btn">
-                    <a href="/logout">Logout</a>
-                </button>
-
-
+            <div className="detailed-user-infos">
+                <div className="button-container">
+                    <button className="btn login-btn">
+                        <a href="/logout">Logout</a>
+                    </button>
+                </div>
             </div>
         </div>
     );

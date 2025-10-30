@@ -11,8 +11,6 @@
 .header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
 }
 
 .header-logo-image {
@@ -23,12 +21,8 @@
 }
 
 .header-title {
-  font-size: 1.4em;
-  font-weight: 600;
-  color: #59d88e;
-  text-transform: none;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+  font-size: 20px;
+  color: var(--primary-color);
 }
 
 .nav {
@@ -47,56 +41,46 @@
 
 .nav-item .nav-link {
   text-decoration: none;
-  color: #333;
-  padding-top: 30px;
-  font-weight: 500;
-}
-
-.auth-buttons {
-  gap: 5px;
-}
-
-.btn {
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .login-btn {
-  background-color: white;
-  color: #59d88e;
+  background-color: var(--background-color-button);
+  color: var(--primary-color);
+  margin-right: 10px;
   border: 1px solid rgb(0, 0, 0, 0.2);
 }
 
 .login-btn:hover {
-  background-color: rgb(255, 230, 230);
+  background-color: var(--background-color-button-hover);
 }
 
 .register-btn {
-  background-color: #59d88e;
-  color: white;
+  background-color: var(--background-color-button-register);
+  border: 1px solid rgb(0, 0, 0, 0.2);
 }
 
 .register-btn:hover {
-  background-color: #2d8b54;
+  background-color:var(--background-color-button-register-hover);
 }
 
 .burger {
-  display: none;
   flex-direction: column;
-  cursor: pointer;
   gap: 5px;
 }
 
 .burger-line {
   width: 25px;
-  height: 3px;
-  background: #59d88e;
+  height: 5px;
+  background-color: var(--primary-color);
 }
 
 @media (max-width: 1000px) {
   .header {
     flex-wrap: wrap;
+  }
+
+  .burger {
+    display: flex;
   }
 
   .header-left {
@@ -115,7 +99,7 @@
     position: absolute;
     top: 70px;
     right: 0;
-    background: rgba(255, 255, 255);
+    background-color: var(--background-color);
     flex-direction: column;
     opacity: 0;
     visibility: hidden;
@@ -145,10 +129,7 @@
   .auth-buttons-mobile {
     display: flex;
     flex-direction: column;
-  }
-
-  .burger {
-    display: flex;
+    gap: 10px;
   }
 }
 

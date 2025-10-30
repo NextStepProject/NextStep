@@ -7,7 +7,7 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="header">
+    <div className="header">
       <div className="header-left">
         <img
           src="public/assets/images/logo/logo.png"
@@ -16,7 +16,7 @@ const Header = () => {
         />
         <h1 className="header-title">
           „NextStep“{" "}
-          <span style={{ color: "gray", fontSize: "10px" }}>
+          <span style={{ color: "gray", fontSize: "10px" , marginLeft: "5px" }}>
             Konzept Projekt
           </span>
         </h1>
@@ -62,7 +62,7 @@ const Header = () => {
         <span className="burger-line"></span>
         <span className="burger-line"></span>
       </div>
-    </header>
+    </div>
   );
 };
 
