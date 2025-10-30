@@ -2,7 +2,8 @@
 CREATE TABLE users (
     userid INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    birthday DATETIME
 );
 
 -- Tabelle: tasks
@@ -33,9 +34,9 @@ CREATE TABLE calendar (
     userid INTEGER NOT NULL,
     title TEXT NOT NULL,
     description TEXT,
-    type TEXT,
-    start_time DATETIME,
-    end_time DATETIME,
+    type TEXT NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
     is_birthday BOOLEAN DEFAULT 0,
     repeat_interval TEXT,  -- für Geburtstage oder wiederkehrende Termine
     linked_task_id INTEGER,           -- optional: Verbindung zur Task
@@ -54,8 +55,11 @@ BEGIN
 END;
 
 
+INSERT INTO users (username, password, birthday)
+VALUES ('admin', 'test123', '1996-11-03');
+
 INSERT INTO users (username, password)
-VALUES ('admin', 'test123');
+VALUES ('admin2', 'test123');
 
 INSERT INTO tasks (userid, title, description, due_date)
 VALUES (1, 'Erste Aufgabe', 'Beschreibung der Aufgabe', '2025-11-01 10:00:00');
@@ -64,3 +68,5 @@ INSERT INTO calendar (userid, title, start_time, end_time, type)
 VALUES (1, 'Meeting', '2025-11-01 14:00:00', '2025-11-01 15:00:00', 'event');
 
 DELETE FROM users WHERE username = 'admin';
+
+DROP TABLE users;
