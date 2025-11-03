@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const auth = require("../middleware/auth");
 
+// Hilfsfunktionen
+
 // Passwort Hashen
 
 async function hashPassword(password) {
@@ -20,12 +22,6 @@ async function verifyPassword(inputPassword, storedHash) {
   const match = await bcrypt.compare(inputPassword, storedHash);
   return match;
 }
-//TEST
-router.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-// User registrieren
 
 router.post("/users", (req, res) => {
   const { username, password } = req.body;
@@ -56,7 +52,7 @@ router.post("/users", (req, res) => {
   );
 });
 
-// User Login
+// Login
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -92,7 +88,27 @@ router.post("/login", (req, res) => {
   );
 });
 
-// User ändern
+// Profile
+
+router.get("/profile", auth, (req, res) => {
+  const { id } = req.user;
+
+  try {
+    db.get("SELECT id, username from users WHERE id = ?", [id], (err, user) => {
+      if (err) {
+        return res.json({ error: "Database error, " + err });
+      }
+      res.status(200).json(user);
+    });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error, please try again later!" });
+  }
+});
+
+// Change User
 
 router.put("/user", auth, (req, res) => {
   const { id } = req.user;
@@ -166,7 +182,7 @@ router.put("/user", auth, (req, res) => {
   }
 });
 
-// User löschen
+// Delete User
 
 router.delete("/user", auth, (req, res) => {
   const { id } = req.user;
@@ -176,26 +192,6 @@ router.delete("/user", auth, (req, res) => {
         return res.json({ error: "Database error, " + err });
       }
       res.status(200).json({ message: `Successfully deleted User!` });
-    });
-  } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({ error: "Internal Server Error, please try again later!" });
-  }
-});
-
-// Profil
-
-router.get("/profile", auth, (req, res) => {
-  const { id } = req.user;
-
-  try {
-    db.get("SELECT id, username from users WHERE id = ?", [id], (err, user) => {
-      if (err) {
-        return res.json({ error: "Database error, " + err });
-      }
-      res.status(200).json(user);
     });
   } catch (err) {
     console.error(err);
