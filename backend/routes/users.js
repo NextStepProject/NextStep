@@ -20,6 +20,10 @@ async function verifyPassword(inputPassword, storedHash) {
   const match = await bcrypt.compare(inputPassword, storedHash);
   return match;
 }
+//TEST
+router.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 // User registrieren
 

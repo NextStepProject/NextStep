@@ -12,3 +12,7 @@ app.use(express.json());
 
 const usersRoutes = require("./routes/users");
 app.use(usersRoutes);
+
+app.listen(port, () => {
+  console.log(`Server läuft auf Port ${port}`);
+});
