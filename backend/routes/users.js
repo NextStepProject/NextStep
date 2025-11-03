@@ -23,6 +23,8 @@ async function verifyPassword(inputPassword, storedHash) {
   return match;
 }
 
+// Registrierung
+
 router.post("/users", (req, res) => {
   const { username, password } = req.body;
 
