@@ -6,8 +6,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const auth = require("../middleware/auth");
 
-// Hilfsfunktionen
-
 // Passwort Hashen
 
 async function hashPassword(password) {
