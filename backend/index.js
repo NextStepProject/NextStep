@@ -15,6 +15,11 @@ app.use(express.json());
 const usersRoutes = require("./routes/users");
 app.use(usersRoutes);
 
+// DailyTask
+
+const dailytaskRoutes = require("./routes/dailytask");
+app.use(dailytaskRoutes);
+
 app.listen(port, () => {
   console.log(`Server läuft auf Port ${port}`);
 });

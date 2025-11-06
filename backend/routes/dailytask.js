@@ -8,8 +8,27 @@ router.get("/dailytask", auth, (req, res) => {
         SELECT * FROM dailyTask 
         WHERE id = ? 
           AND (
-                DATE(due_date) = DATE('now')
-                OR (repeat_interval = ? AND is_done = 0)
+              DATE(due_date) = DATE('now')
+              OR (repeat_interval IS NOT NULL AND is_done = 0)
+          )
+    `;
+    db.all(sqlQuery, [req.user.id], (err, rows) => {
+        if (err) {
+            console.error("SQL Error:", err); 
+            return res.status(500).send("Error in Query Request");
+        } else {
+            return res.status(200).json(rows);
+        }
+    });
+});
+// Täglich erlidgte Aufgaben abrufen
+router.get("/dailytask/done", auth, (req, res) => {
+    const sqlQuery = `
+        SELECT * FROM dailyTask 
+        WHERE id = ? 
+          AND (
+              DATE(due_date) = DATE('now')
+              OR (repeat_interval IS NOT NULL AND is_done = 1)
           )
     `;
     db.all(sqlQuery, [req.user.id], (err, rows) => {
@@ -40,7 +59,7 @@ router.put("/dailytask/done/:taskid", auth, (req, res) => {
         if (this.changes === 0) {
             return res.status(404).send("Task not found or unauthorized");
         }
-        return res.status(200).json({ message: "Task marked as done", taskId: taskId });
+        return res.status(200).json({ message: "Task marked as done or undone", taskId: taskId });
     });
 });
 // Aufgabe erstellen
@@ -82,5 +101,58 @@ router.delete("/dailytask/:taskid", auth, (req, res) => {
     });
 });
 
+// Aufgabe updaten
+router.put("/dailytask/:taskid", auth, (req, res) => {
+    const taskId = req.params.taskid;
+    const userId = req.user.id;
+    
+    const allowedFields = ['title', 'description', 'due_date', 'repeat_interval'];
+    const updates = {}; 
+    
+    allowedFields.forEach(field => {
+        if (req.body[field] !== undefined && req.body[field] !== null) {
+            updates[field] = req.body[field];
+        }
+    });
 
+    const updateKeys = Object.keys(updates);
+    if (updateKeys.length === 0) {
+        return res.status(400).json({ 
+            message: "Bitte geben Sie mindestens ein gültiges Feld zum Aktualisieren an." 
+        });
+    }
+
+    const setClauses = updateKeys.map(key => `${key} = ?`).join(', ');
+    const updateValues = updateKeys.map(key => updates[key]);
+
+    const sqlQuery = `
+        UPDATE dailyTask 
+        SET ${setClauses}, updated_at = CURRENT_TIMESTAMP
+        WHERE taskid = ? AND id = ?
+    `;
+
+    const allValues = [...updateValues, taskId, userId];
+
+    db.run(sqlQuery, allValues, function (err) {
+        if (err) {
+            console.error("SQL Error:", err);
+            return res.status(500).json({ 
+                message: "Fehler beim Aktualisieren der Aufgabe in der Datenbank.",
+                error: err.message
+            });
+        }
+
+        if (this.changes === 0) {
+            return res.status(404).json({ 
+                message: "Aufgabe nicht gefunden oder keine Berechtigung zum Ändern." 
+            });
+        }
+        
+        return res.status(200).json({ 
+            message: "Aufgabe erfolgreich aktualisiert", 
+            taskId: taskId 
+        });
+    });
+});
+//EXPORT
 module.exports = router;

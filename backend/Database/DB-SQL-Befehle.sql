@@ -5,14 +5,14 @@ CREATE TABLE users (
     password TEXT NOT NULL
 );
 
--- Tabelle: tasks
-CREATE TABLE tasks (
+-- Tabelle: dailytasks
+CREATE TABLE dailyTask (
     taskid INTEGER PRIMARY KEY AUTOINCREMENT,
     id INTEGER NOT NULL,
     title TEXT NOT NULL,
     description TEXT,
-    due_date DATETIME,
-    repeat_interval TEXT, -- z. B. 'daily', 'weekly', 'monthly'
+    due_date DATETIME NOT NULL,
+    repeat_interval INTEGER, 
     is_done BOOLEAN DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -42,7 +42,7 @@ CREATE TABLE calendar (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (linked_task_id) REFERENCES tasks(id) ON DELETE SET NULL
+    FOREIGN KEY (linked_task_id) REFERENCES tasks(taskid) ON DELETE SET NULL
 );
 
 -- Trigger, um updated_at automatisch zu aktualisieren
@@ -65,5 +65,7 @@ VALUES (1, 'Meeting', '2025-11-01 14:00:00', '2025-11-01 15:00:00', 'event');
 DELETE FROM users WHERE username = 'admin';
 
 DROP TABLE users;
+
+DROP TABLE dailyTask;
 
 SELECT * FROM users WHERE username = 'admin';
