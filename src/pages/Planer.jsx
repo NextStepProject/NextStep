@@ -8,6 +8,13 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 const Planer = () => {
     const today = new Date();
 
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+        window.location.href = "/home";
+        return null;
+    }
+
     const eventsData = [
         {
             UserId: 1,
