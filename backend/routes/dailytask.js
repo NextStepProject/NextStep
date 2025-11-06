@@ -44,24 +44,27 @@ router.get("/dailytask/done", auth, (req, res) => {
 router.put("/dailytask/done/:taskid", auth, (req, res) => {
     const taskId = req.params.taskid;
     const userId = req.user.id;
+    const requestedStatus = req.body.is_done; 
+    const newStatus = (requestedStatus === 0) ? 0 : 1; 
+
     const sqlQuery = `
         UPDATE dailyTask 
-        SET is_done = 1, updated_at = CURRENT_TIMESTAMP 
+        SET is_done = ?, updated_at = CURRENT_TIMESTAMP 
         WHERE taskid = ? AND id = ?
     `;
-
-    db.run(sqlQuery, [taskId, userId], function (err) {
+    db.run(sqlQuery, [newStatus, taskId, userId], function (err) {
         if (err) {
             console.error("SQL Error:", err);
             return res.status(500).send("Error updating task status");
         } 
-
         if (this.changes === 0) {
             return res.status(404).send("Task not found or unauthorized");
         }
-        return res.status(200).json({ message: "Task marked as done or undone", taskId: taskId });
+        const message = `Task marked or unmarked as done`;
+        return res.status(200).json({ message, taskId: taskId });
     });
 });
+
 // Aufgabe erstellen
 router.post("/dailytask", auth, (req, res) => {
     const userId = req.user.id; 
