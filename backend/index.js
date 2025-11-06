@@ -3,10 +3,12 @@ const app = express();
 const port = 9001;
 const cors = require("cors");
 
+
 // API
 app.use(cors());
 
 app.use(express.json());
+
 
 // Users
 

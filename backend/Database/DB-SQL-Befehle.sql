@@ -2,8 +2,7 @@
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-    birthday DATETIME
+    password TEXT NOT NULL
 );
 
 -- Tabelle: tasks
@@ -54,12 +53,8 @@ BEGIN
     UPDATE calendar SET updated_at = CURRENT_TIMESTAMP WHERE id = OLD.id;
 END;
 
-
-INSERT INTO users (username, password, birthday)
-VALUES ('admin', 'test123', '1996-11-03');
-
 INSERT INTO users (username, password)
-VALUES ('admin2', 'test123');
+VALUES ('admin', 'test123');
 
 INSERT INTO tasks (id, title, description, due_date)
 VALUES (1, 'Erste Aufgabe', 'Beschreibung der Aufgabe', '2025-11-01 10:00:00');

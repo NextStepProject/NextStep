@@ -44,7 +44,7 @@ h2 {
 }
 
 button {
-  color: var(--background-color-button);
+  background-color: var(--background-color-button);
   padding: 10px 20px;
   font-size: 1.2em;
   border-radius: 8px;

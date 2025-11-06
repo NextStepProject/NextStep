@@ -9,6 +9,13 @@ const Dashboard = () => {
     "Käfig Reinigung",
   ];
 
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    window.location.href = "/home";
+    return null;
+  }
+
   return (
     <div>
       <Header />
