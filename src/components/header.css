@@ -45,7 +45,6 @@
 
 .login-btn {
   background-color: var(--background-color-button);
-  color: var(--primary-color);
   margin-right: 10px;
   border: 1px solid rgb(0, 0, 0, 0.2);
 }
