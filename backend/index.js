@@ -20,6 +20,11 @@ app.use(usersRoutes);
 const dailytaskRoutes = require("./routes/dailytask");
 app.use(dailytaskRoutes);
 
+// Scheduler
+
+const schedulerRoutes = require("./routes/scheduler");
+app.use(schedulerRoutes);
+
 app.listen(port, () => {
   console.log(`Server läuft auf Port ${port}`);
 });
