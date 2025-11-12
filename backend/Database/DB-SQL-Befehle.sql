@@ -34,7 +34,7 @@ CREATE TABLE calendar (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (linked_task_id) REFERENCES tasks(taskid) ON DELETE SET NULL
+    FOREIGN KEY (linked_task_id) REFERENCES dailyTask(taskid) ON DELETE SET NULL
 );
 
 DROP TABLE users;
