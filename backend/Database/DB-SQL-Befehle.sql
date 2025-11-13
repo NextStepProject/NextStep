@@ -41,4 +41,12 @@ DROP TABLE users;
 
 DROP TABLE dailyTask;
 
+SELECT * FROM users WHERE username = 'admin';
+
+SELECT * FROM dailyTask WHERE id = 1;
+
+UPDATE dailyTask SET is_done = 0 WHERE id = 1;
+
+
+UPDATE dailyTask SET is_done = 1 WHERE id = 1;
 DROP TABLE calendar;
