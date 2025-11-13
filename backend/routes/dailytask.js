@@ -9,7 +9,7 @@ router.get("/dailytask", auth, (req, res) => {
         WHERE id = ? 
           AND (
               DATE(due_date) = DATE('now')
-              OR (repeat_interval IS NOT NULL AND is_done = 0)
+            OR (repeat_interval IS NOT NULL)
           )
     `;
     db.all(sqlQuery, [req.user.id], (err, rows) => {
@@ -21,25 +21,7 @@ router.get("/dailytask", auth, (req, res) => {
         }
     });
 });
-// Täglich erlidgte Aufgaben abrufen
-router.get("/dailytask/done", auth, (req, res) => {
-    const sqlQuery = `
-        SELECT * FROM dailyTask 
-        WHERE id = ? 
-          AND (
-              DATE(due_date) = DATE('now')
-              OR (repeat_interval IS NOT NULL AND is_done = 1)
-          )
-    `;
-    db.all(sqlQuery, [req.user.id], (err, rows) => {
-        if (err) {
-            console.error("SQL Error:", err); 
-            return res.status(500).send("Error in Query Request");
-        } else {
-            return res.status(200).json(rows);
-        }
-    });
-});
+
 // Aufgaben abhaken
 router.put("/dailytask/done/:taskid", auth, (req, res) => {
     const taskId = req.params.taskid;
